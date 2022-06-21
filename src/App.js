@@ -2,24 +2,36 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const animal = [
+    {vrsta:'Konj',ime:'Cezar',datumRodjenja:( new Date() )},
+    {vrsta:'Pas',ime:'Kliford',datumRodjenja:( new Date() )},
+    {vrsta:'Macka',ime:'Senka',datumRodjenja:( new Date() )},
+    {vrsta:'Krava',ime:'Ana',datumRodjenja:( new Date() )},
+    {vrsta:'Bik',ime:'Crni',datumRodjenja:( new Date() )},
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+{animal.map((animal, index) => (
+    <tr key={index}>
+     <td>
+        {animal.sektor ? animal.sektor : <p>Nepoznat</p>}
+     </td>
+    <td>{animal.vrsta}</td>
+    <td>{animal.ime}</td>
+    <td>
+        {animal.datumRodjenja
+            ? animal.datumRodjenja.toLocaleDateString()
+            : <p>Nepoznat</p>}
+    </td>
+</tr>
+ 
+))}
+</div> );
+}
+  
+  
 export default App;
+  

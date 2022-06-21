@@ -19,6 +19,14 @@ function App() {
 
     setList(newList);
   }
+
+  function MoveToTop(index) {
+    const newList = animallist.filter((animal, i) => i !== index);
+    
+    const moveList = animallist[index];
+
+   setList([moveList, ...newList]); 
+  }
   
 
   return (
@@ -39,7 +47,11 @@ function App() {
     <td className="table-actions">
     <button onClick={() => handleRemove(index)}>   
         Ukloni
-    </button>  
+    </button>
+
+    <button onClick={() => MoveToTop(index)}>
+          Pocetak
+      </button>  
     </td>                  
   </tr>
 ))}
